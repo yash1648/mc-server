@@ -1,0 +1,148 @@
+version: '3.8'
+
+# Docker Compose configuration for Minecraft Server
+# This file defines the PaperMC server container
+
+services:
+  papermc:
+    # Image: itzg/minecraft-server is a popular, well-maintained image
+    # It automatically handles Java installation and server setup
+    image: itzg/minecraft-server:latest
+    
+    # Container name - used in scripts and commands
+    container_name: papermc-server
+    
+    # Port mapping: host_port:container_port
+    # 25565 is the default Minecraft server port
+    ports:
+      - "25565:25565"
+    
+    # Environment variables - server configuration
+    environment:
+      # EULA: Must be TRUE to run the server (Minecraft End User License Agreement)
+      EULA: "TRUE"
+      
+      # TYPE: Server type (PAPER = PaperMC, optimized for performance)
+      # Other options: SPIGOT, VANILLA, BUKKIT
+      TYPE: "PAPER"
+      
+      # VERSION: Server version (LATEST = auto-update to latest)
+      # Can also specify: "1.20.1", "1.19.2", etc.
+      VERSION: "LATEST"
+      
+      # MEMORY: RAM allocated to server
+      # Examples: 1G (1GB), 2G (2GB), 4G (4GB)
+      # Adjust based on number of players:
+      # - 2-5 players: 2G
+      # - 6-15 players: 4G
+      # - 16+ players: 6G+
+      MEMORY: "2G"
+      
+      # NOGUI: true = no GUI (headless mode, better for servers)
+      NOGUI: "true"
+      
+      # DIFFICULTY: Game difficulty
+      # 0 = Peaceful, 1 = Easy, 2 = Normal, 3 = Hard
+      DIFFICULTY: "1"
+      
+      # GAMEMODE: Default game mode
+      # 0 = Survival, 1 = Creative, 2 = Adventure, 3 = Spectator
+      GAMEMODE: "0"
+      
+      # MAX_PLAYERS: Maximum concurrent players allowed
+      MAX_PLAYERS: "20"
+      
+      # MOTD: Server message of the day (shown in server list)
+      # §6 = gold, §c = red, §b = aqua, etc.
+      MOTD: "§6Welcome to PaperMC Server §c- §bPlay Now!"
+      
+      # PVP: Enable/disable player vs player combat
+      PVP: "true"
+      
+      # ALLOW_FLIGHT: Allow creative mode flight in survival
+      ALLOW_FLIGHT: "false"
+      
+      # SPAWN_PROTECTION: Radius of spawn protection (blocks around spawn point)
+      SPAWN_PROTECTION: "16"
+      
+      # Enable query protocol (for server listing)
+      ENABLE_QUERY: "false"
+      
+      # View distance: How far players can see (in chunks)
+      # Higher = more CPU/RAM usage, 10-12 is optimal
+      VIEW_DISTANCE: "10"
+      
+      # Simulation distance: How far entities are simulated
+      # Usually same as or less than view distance
+      SIMULATION_DISTANCE: "10"
+    
+    # Volumes: Persistent storage for world and configs
+    # ./data:/data means: use local 'data' folder, mount as /data in container
+    # Everything in 'data' persists across container restarts
+    volumes:
+      - ./data:/data
+    
+    # Restart policy
+    # unless-stopped: Auto-restart unless manually stopped
+    # Other options: always, no, on-failure
+    restart: unless-stopped
+    
+    # Docker network for container communication
+    networks:
+      - minecraft-net
+    
+    # (Optional) Resource limits
+    # Uncomment to limit CPU and memory
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '2'
+    #       memory: 4G
+    #     reservations:
+    #       cpus: '1'
+    #       memory: 2G
+
+# Docker network definition
+networks:
+  minecraft-net:
+    driver: bridge
+
+# ============================================================================
+# HOW TO USE THIS FILE:
+# ============================================================================
+# 
+# 1. Start server:
+#    docker compose up -d
+#
+# 2. View logs:
+#    docker compose logs -f
+#
+# 3. Stop server:
+#    docker compose down
+#
+# 4. Restart:
+#    docker compose restart
+#
+# ============================================================================
+# COMMON CUSTOMIZATIONS:
+# ============================================================================
+#
+# Change server memory:
+#   MEMORY: "4G"
+#
+# Change difficulty:
+#   DIFFICULTY: "2"  (Normal)
+#
+# Enable whitelist:
+#   ENABLE_WHITELIST: "true"
+#
+# Change max players:
+#   MAX_PLAYERS: "50"
+#
+# Disable PVP:
+#   PVP: "false"
+#
+# Change MOTD:
+#   MOTD: "Your custom message here"
+#
+# ============================================================================
