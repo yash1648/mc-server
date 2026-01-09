@@ -49,7 +49,7 @@ if ! docker ps --format '{{.Names}}' | grep -q "^papermc-server$"; then
     echo -e "${RED}❌ Server is not running!${NC}"
     echo ""
     echo "Start the server with:"
-    echo "  ${BLUE}./scripts/start.sh${NC}"
+    echo -e "  ${BLUE}./scripts/start.sh${NC}"
     echo ""
     exit 1
 fi

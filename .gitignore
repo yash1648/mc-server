@@ -1,1 +1,21 @@
 data/*
+# Data folders
+data/
+backups/
+logs/
+tools/playit*
+tools/playit.exe
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+scripts/activate-tunnel.sh

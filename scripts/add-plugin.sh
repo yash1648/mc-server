@@ -135,9 +135,9 @@ fi
 PLUGIN_SIZE=$(du -h "$PLUGIN_PATH" | awk '{print $1}')
 
 echo -e "${BLUE}Plugin Information:${NC}"
-echo "  Name: ${CYAN}$PLUGIN_FILENAME${NC}"
-echo "  Size: ${GREEN}$PLUGIN_SIZE${NC}"
-echo "  Location: ${CYAN}$PLUGIN_PATH${NC}"
+echo -e "  Name: ${CYAN}$PLUGIN_FILENAME${NC}"
+echo -e "  Size: ${GREEN}$PLUGIN_SIZE${NC}"
+echo -e "  Location: ${CYAN}$PLUGIN_PATH${NC}"
 
 echo ""
 
@@ -202,21 +202,21 @@ if [ "$RESTART" = true ]; then
         echo -e "${GREEN}✅ Server restarted${NC}"
         echo ""
         echo "View startup logs:"
-        echo "  ${BLUE}./scripts/logs.sh${NC}"
+        echo -e "  ${BLUE}./scripts/logs.sh${NC}"
         
     else
         echo -e "${YELLOW}Server is not running. Start with:${NC}"
-        echo "  ${BLUE}./scripts/start.sh${NC}"
+        echo -e "  ${BLUE}./scripts/start.sh${NC}"
     fi
 else
     echo -e "${YELLOW}⚠️  Server not restarted${NC}"
     echo ""
     echo "To load the plugin, restart with:"
-    echo "  ${BLUE}./scripts/restart.sh${NC}"
+    echo -e "  ${BLUE}./scripts/restart.sh${NC}"
     echo ""
     echo "Or stop and manually start:"
-    echo "  ${BLUE}./scripts/stop.sh${NC}"
-    echo "  ${BLUE}./scripts/start.sh${NC}"
+    echo -e "  ${BLUE}./scripts/stop.sh${NC}"
+    echo -e "  ${BLUE}./scripts/start.sh${NC}"
 fi
 
 echo ""

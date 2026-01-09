@@ -15,7 +15,7 @@
 # Colors for output
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
+BLUE='\033[0;31m'
 RED='\033[0;31m'
 CYAN='\033[0;36m'
 PURPLE='\033[0;35m'
@@ -42,35 +42,35 @@ show_menu() {
     
     echo -e "${CYAN}SERVER CONTROL${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  ${BLUE}1${NC})  Start Server"
-    echo "  ${BLUE}2${NC})  Stop Server"
-    echo "  ${BLUE}3${NC})  Restart Server"
+    echo -e "  ${BLUE}1${NC})  Start Server"
+    echo -e "  ${BLUE}2${NC})  Stop Server"
+    echo -e "  ${BLUE}3${NC})  Restart Server"
     echo ""
     
     echo -e "${CYAN}MONITORING${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  ${BLUE}4${NC})  View Live Logs"
-    echo "  ${BLUE}5${NC})  Check Server Status"
+    echo -e "  ${BLUE}4${NC})  View Live Logs"
+    echo -e "  ${BLUE}5${NC})  Check Server Status"
     echo ""
     
     echo -e "${CYAN}ADMINISTRATION${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  ${BLUE}6${NC})  Open Admin Console"
-    echo "  ${BLUE}7${NC})  Show Server Info"
+    echo -e "  ${BLUE}6${NC})  Open Admin Console"
+    echo -e "  ${BLUE}7${NC})  Show Server Info"
     echo ""
     
     echo -e "${CYAN}MAINTENANCE${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  ${BLUE}8${NC})  Create Backup"
-    echo "  ${BLUE}9${NC})  Add Plugin"
-    echo "  ${BLUE}10${NC}) Edit Configuration"
+    echo -e "  ${BLUE}8${NC})  Create Backup"
+    echo -e "  ${BLUE}9${NC})  Add Plugin"
+    echo -e "  ${BLUE}10${NC}) Edit Configuration"
     echo ""
     
     echo -e "${CYAN}SYSTEM${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  ${BLUE}11${NC}) Docker Information"
-    echo "  ${BLUE}12${NC}) Help & Documentation"
-    echo "  ${BLUE}0${NC})  Exit Menu"
+    echo -e "  ${BLUE}11${NC}) Docker Information"
+    echo -e "  ${BLUE}12${NC}) Help & Documentation"
+    echo -e "  ${BLUE}0${NC})  Exit Menu"
     echo ""
 }
 
@@ -78,7 +78,8 @@ show_menu() {
 while true; do
     show_menu
     
-    read -p "${GREEN}Select option (0-12): ${NC}" choice
+    echo -e "${GREEN}Select option (0-12): ${NC}"
+	read choice
     
     case $choice in
         
