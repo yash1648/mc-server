@@ -7,11 +7,12 @@ A complete, production-ready guide to host a Minecraft Java Edition server using
 
 ## 📋 Table of Contents
 1. [Overview](#overview)
-2. [Architecture](#architecture)
-3. [Prerequisites](#prerequisites)
-4. [Installation](#installation)
-5. [File Structure & Explanation](#file-structure--explanation)
-6. [Quick Start](#quick-start)
+2. [SnapShots](#snapshots)
+3. [Architecture](#architecture)
+4. [Prerequisites](#prerequisites)
+5. [Installation](#installation)
+6. [File Structure & Explanation](#file-structure--explanation)
+7. [Quick Start](#quick-start)
 7. [Script Usage Guide](#script-usage-guide)
 8. [Configuration](#configuration)
 9. [Troubleshooting](#troubleshooting)
@@ -37,7 +38,14 @@ This project provides a **complete, easy-to-manage Minecraft Java Edition server
 - ✅ Admin console for server commands
 
 ---
-
+## Snapshots
+### Menu
+![Project Preview](images/menu.png)
+### Docker Information
+![Project Preview](images/info.png)
+### Documentation
+![Project Preview](images/docs.png)
+---
 ## 🏗️ Architecture
 
 ```
