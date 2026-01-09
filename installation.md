@@ -81,7 +81,7 @@ chmod +x scripts/*.sh
 If you have the files in a git repository:
 
 ```bash
-git clone <your-repo-url> minecraft-server
+git clone https://github.com/yash1648/mc-server.git minecraft-server
 cd minecraft-server
 chmod +x scripts/*.sh
 ./scripts/setup.sh
