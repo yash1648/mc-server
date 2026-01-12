@@ -13,10 +13,13 @@ A complete, production-ready guide to host a Minecraft Java Edition server using
 5. [Installation](#installation)
 6. [File Structure & Explanation](#file-structure--explanation)
 7. [Quick Start](#quick-start)
-7. [Script Usage Guide](#script-usage-guide)
-8. [Configuration](#configuration)
-9. [Troubleshooting](#troubleshooting)
-10. [Advanced Topics](#advanced-topics)
+8. [Script Usage Guide](#script-usage-guide)
+9. [Configuration](#configuration)
+10. [Troubleshooting](#troubleshooting)
+11. [Advanced Topics](#advanced-topics)
+12. [Documentation](#documentation)
+13. [Contributing](#contributing)
+14. [Changelog](#changelog)
 
 ---
 
@@ -245,69 +248,8 @@ minecraft-server/
 - **When to edit**: Customize server settings without touching docker-compose.yml
 - **Location**: Root directory
 
-#### **scripts/setup.sh**
-- **Purpose**: Initial setup - creates directories and config files
-- **What it does**: Creates docker-compose.yml, .env, directories if they don't exist
-- **Run once**: Yes, at the beginning
-- **Usage**: `./scripts/setup.sh`
-
-#### **scripts/start.sh**
-- **Purpose**: Start the Minecraft server
-- **What it does**: Creates/starts Docker container, PaperMC begins loading
-- **Run when**: You want to turn on the server
-- **Usage**: `./scripts/start.sh`
-
-#### **scripts/stop.sh**
-- **Purpose**: Gracefully stop the server
-- **What it does**: Sends stop command to server, saves world, stops container
-- **Run when**: You want to shut down the server safely
-- **Usage**: `./scripts/stop.sh`
-
-#### **scripts/restart.sh**
-- **Purpose**: Restart the server
-- **What it does**: Calls stop.sh then start.sh
-- **Run when**: You need to reload plugins or apply changes
-- **Usage**: `./scripts/restart.sh`
-
-#### **scripts/status.sh**
-- **Purpose**: Check if server is running and show resource usage
-- **What it does**: Shows container status, CPU/memory usage, port bindings
-- **Run when**: You want to check server health
-- **Usage**: `./scripts/status.sh`
-
-#### **scripts/logs.sh**
-- **Purpose**: View live server logs (real-time)
-- **What it does**: Streams Docker logs continuously
-- **Run when**: Debugging issues or watching startup
-- **Usage**: `./scripts/logs.sh` (Press Ctrl+C to exit)
-
-#### **scripts/backup.sh**
-- **Purpose**: Create a backup of your world
-- **What it does**: Saves world files to `backups/` folder, keeps last 10 backups
-- **Run when**: Before major updates or regularly
-- **Usage**: `./scripts/backup.sh`
-
-#### **scripts/add-plugin.sh**
-- **Purpose**: Install a Minecraft plugin
-- **What it does**: Copies .jar file to plugins folder, restarts server
-- **Run when**: You want to add a new plugin
-- **Usage**: `./scripts/add-plugin.sh /path/to/plugin.jar` or `./scripts/add-plugin.sh https://download.url/plugin.jar`
-
-#### **scripts/console.sh**
-- **Purpose**: Interactive admin console for server commands
-- **What it does**: Allows you to execute commands (say, give, op, etc.) interactively
-- **Run when**: You need to run commands on the server
-- **Usage**: `./scripts/console.sh`
-- **Example commands**: 
-  - `say Server restarting in 10 seconds`
-  - `op PlayerName`
-  - `give @a diamond`
-
-#### **scripts/menu.sh**
-- **Purpose**: Interactive menu system
-- **What it does**: Shows a menu with options (start, stop, backup, etc.)
-- **Run when**: You prefer a GUI-like experience
-- **Usage**: `./scripts/menu.sh`
+#### **Scripts**
+See [Scripts Documentation](scripts/README.md) for detailed information on each script.
 
 ---
 
@@ -954,21 +896,31 @@ docker cp papermc-server:/data ./data-backup-$(date +%s)
 
 ---
 
-## 📝 File Checklist
+## 📚 Documentation
 
-Before starting, ensure you have:
-- ✅ `docker-compose.yml` - Docker config
-- ✅ `.env` - Server settings
-- ✅ `scripts/setup.sh` - Setup script
-- ✅ `scripts/start.sh` - Start script
-- ✅ `scripts/stop.sh` - Stop script
-- ✅ `scripts/restart.sh` - Restart script
-- ✅ `scripts/status.sh` - Status script
-- ✅ `scripts/logs.sh` - Logs script
-- ✅ `scripts/backup.sh` - Backup script
-- ✅ `scripts/add-plugin.sh` - Plugin script
-- ✅ `scripts/console.sh` - Console script
-- ✅ `scripts/menu.sh` - Menu script
+For more detailed information about specific components, check the following documentation:
+- **[Installation Guide](installation.md)**: Step-by-step installation instructions.
+- **[Cheat Sheet](CHEATSHEET.md)**: Quick reference for commands and common tasks.
+- **[Scripts Documentation](scripts/README.md)**: Detailed guide for all management scripts.
+- **[Images](images/README.md)**: Information about project assets.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on how to report bugs, suggest enhancements, and submit pull requests.
+
+---
+
+## 📅 Changelog
+
+### Version 1.0 (2025-01)
+- Initial release
+- Added Docker support with PaperMC
+- Added playit.gg tunneling integration
+- Added management scripts (start, stop, restart, backup, etc.)
+- Added interactive menu
+- Comprehensive documentation
 
 ---
 
@@ -986,4 +938,4 @@ cd ~/minecraft-server
 
 ---
 
-**Version**: 1.0 | **Last Updated**: January 2025 | **Status**: Production Ready ✅
+**Version**: 1.0 | **Last Updated**: January 2026 | **Status**: Production Ready ✅
